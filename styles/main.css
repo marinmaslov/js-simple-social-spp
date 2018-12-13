@@ -1,0 +1,733 @@
+/* Osnovne stvari za body */
+body {
+    color: #414042;
+    font-family: 'Quicksand', sans-serif;
+    background: #EEEEEE;
+    margin:0px;
+}
+
+
+/* Elementi iz sekcije HRADER */
+header {
+    background: #fff;
+    border-bottom: 1px solid #c2c2c2;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2)!important;
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+   
+}
+
+.header-container {
+    max-width:1000px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+header .title {
+    display: flex;
+    justify-content: space-between;
+    margin: -4px 0 0 20px;
+}
+
+
+
+
+
+.image-logo {
+    height: 30px;
+    width: auto;
+    margin: 3px 5px 0 0;
+}
+
+.title-logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    margin: 0px;
+    line-height: 30px;
+}
+
+.title a {
+    text-decoration: none;
+    color: #414042;
+}
+
+
+
+header .search {
+    border:1px solid #414042;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+header .search button {
+    cursor: pointer;
+}
+
+#search-box {
+    border:none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#search-submit {
+    border:none;
+    background:none;
+}
+
+
+header .menu {
+    margin: 10px 20px 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+header .menu-icon {
+    width:26px;
+    height:auto;
+    margin: 0 5px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+header .menu-icon:hover {
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+
+
+
+
+
+
+
+
+/* Elementi iz sekcije GREETING */
+
+#greeting {
+    background-image: linear-gradient(120deg, #D585FF, #00FFEE);
+    margin-top: 50px;
+}
+
+#greeting .greeting-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+#greeting .message h2 {
+    font-family:'Pacifico', cursive;
+    font-size:36px;
+    color:#fff;
+    margin:50px 0 0 0;
+}
+
+#greeting .message h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size:18px;
+    color:#fff;
+    margin: 0;
+}
+
+#greeting img {
+    height:200px;
+    width:auto;
+}
+
+
+
+
+
+
+
+
+/* Elementi iz sekcije MAIN */
+
+main {
+    max-width:1000px;
+    margin:20px auto;
+}
+
+main #main-container {
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+main #posts {
+    flex-basis: 70%;
+}
+
+
+
+
+
+main #sidebar {
+    flex-basis: 30%;
+    
+}
+
+
+
+
+/* Elementi iz sekcije MAIN/SIDEBAR */
+#sidebar .container {
+    padding: 0 0 0 20px;
+}
+
+#sidebar #profile {
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+#profile img {
+    opacity:1;
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#profile img:hover {
+    opacity:0.8;
+}
+
+#sidebar .info a {
+    text-decoration: none;
+    color: #414042;
+}
+
+
+
+#sidebar .info h2 {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    opacity:1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#sidebar .info h2:hover {
+    opacity:0.8;
+}
+
+#sidebar .info p {
+    font-size: 14px;
+    margin: 4px 0 0 0;
+}
+
+#sidebar .about {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+#sidebar .about .about-container {
+    padding: 10px 20px;
+}
+
+#sidebar .about h3 {
+    font-size: 12px;
+    color:#676767;
+    margin:0 0 5px 0;
+}
+
+#sidebar .about p {
+    font-size:14px;
+    margin:0;
+}
+
+#sidebar .about-info {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+
+
+#sidebar #recomended {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+#sidebar #recomended .recomended-container {
+    padding: 10px 20px;
+}
+
+#recomended .recomended-element {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+
+#recomended .recommendation-text {
+    font-size: 12px;
+    color: #676767;
+    margin: 0 0 15px 0;
+}
+
+#recomended .profile {
+    display: flex;
+}
+
+
+#recomended img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    opacity:1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#recomended img:hover {
+    opacity:0.8;
+}
+
+#recomended .name h2 {
+    font-size: 18px;
+    margin: 4px 0 0 0;
+    opacity:1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#recomended .name h2:hover {
+    opacity:0.8;
+}
+
+#recomended .name p {
+    font-size: 12px;
+    margin: 2px 0 0 0;
+}
+
+#recomended .name a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #414042;
+}
+
+#recomended .follow a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #D585FF;
+    line-height: 35px;
+}
+
+
+/* Elementi iz sekcije MAIN/POSTS */
+
+/* Dodaj objavu botun */
+#posts .posts-container {
+    padding: 0 0 0 0;
+}
+
+#posts .add-post-button {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+#posts .add-post-button a {
+    text-decoration: none;
+    color: #bfbfbf;
+    
+}
+
+.add-post-button .container {
+    padding: 10px 20px;
+    display:flex;
+    justify-content: center;
+    color: #bfbfbf;
+    transition: all 0.3s ease-in-out 0s;
+    
+}
+
+.add-post-button .container:hover {
+    color: #414042;
+}
+
+
+
+
+.add-post-button .container h2 {
+    font-size: 16px;
+    margin: 0 0 0 5px;
+}
+
+.add-post-button .container i {
+    font-size: 20px;
+    margin: 0 5px 0 0;
+}
+
+
+/* Individual post */
+#posts .user-post {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+#posts .user-post .container {
+    padding: 10px 20px 0px;
+}
+
+#posts .user-post .post-user-info {
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+#posts .user-post .post-user-info img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-user-info img:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-user-info .info a {
+    text-decoration: none;
+    color: #414042;
+}
+
+#posts .user-post .post-user-info .info h2 {
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-user-info .info h2:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-user-info .info p {
+    font-size: 14px;
+    margin: 4px 0 0 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-user-info .info p:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-user-image img {
+    width:100%;
+}
+
+#posts .user-post .post-image-buttons {
+    display:flex;
+    justify-content: space-between;
+}
+
+#posts .user-post .post-image-buttons {
+    display:flex;
+    justify-content: space-between;
+}
+
+#posts .user-post .post-image-buttons .image-button {
+    height: 25px;
+    width: auto;
+    margin: 2px;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-image-buttons .image-button:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-image-info {
+    padding: 0 0 5px 0;
+}
+
+#posts .user-post .post-image-info .like-counter, .image-message {
+    margin:0;
+    font-size: 16px;
+}
+
+#posts .user-post .post-image-info .like-counter a, .image-message a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #414042;
+    opacity: 1;
+    margin: 0 4px 0 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-image-info .like-counter a:hover, .image-message a:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-image-info .image-tags {
+    margin: 4px 0;
+}
+
+#posts .user-post .post-image-info .image-tags a {
+    color: #D585FF;
+    text-decoration: none;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-image-info .image-tags a:hover {
+    color: #414042;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-comment-section {
+    border-bottom: 1px solid #c2c2c2;
+    padding: 0 0 20px 0;
+}
+
+#posts .user-post .post-comment-section .comment {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+}
+
+#posts .user-post .post-comment-section .comment a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #414042;
+    opacity: 1;
+    margin: 0 4px 0 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-comment-section .comment a:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-add-comment {
+    padding: 20px 0;
+    display: flex;
+}
+
+#posts .user-post .post-add-comment .comment {
+    border: none;
+    flex-basis: 90%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#posts .user-post .post-add-comment .submit-comment {
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    background: none;
+    color: #D585FF;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+}
+
+/* Recomended */
+#posts-recomended {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+#posts-recomended .container {
+    padding: 20px;
+}
+
+#posts-recomended .recommendation-text {
+    font-size: 12px;
+    color: #676767;
+    margin: 0 0 15px 0;
+}
+
+#posts-recomended .elements {
+    display: flex;
+    justify-content: space-around;
+}
+
+#posts-recomended .element {
+    background: #f6f6f6;;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    margin: 0px 10px;
+}
+
+#posts-recomended .profile img {
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts-recomended .profile img:hover {
+    opacity: 0.8;
+}
+
+#posts-recomended .profile a {
+    text-decoration: none;
+    color: #414042;
+    font-weight: bold;
+}
+
+#posts-recomended .profile p {
+    margin: 5px 0 0 0;
+    opacity: 1;
+    font-size: 12px;
+}
+
+#posts-recomended .profile h2 {
+    margin: 0px;
+    font-size: 18px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts-recomended .profile h2:hover {
+    opacity: 0.8;
+}
+
+#posts-recomended .follow {
+    margin: 10px 0 0 0;
+}
+
+#posts-recomended .follow a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    background: #D585FF;
+    padding: 2px 10px;
+    border-radius: 20px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts-recomended .follow a:hover {
+    opacity: 0.8;
+}
+
+#posts-recomended .follow h2, p {
+    margin: 0px;
+}
+
+#posts-recomended .delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts-recomended .delete-button:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+
+/* Footer */
+footer {
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+footer .container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .container p {
+    color: #888888;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+footer .container a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #9242bd;
+    margin: 0 10px 0 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+footer .container a:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Responsivnost */
+@media only screen and (max-width: 880px) {
+    #sidebar .about-info {
+        flex-wrap: wrap;
+    }
+
+    #recomended .profile {
+        flex-wrap: wrap;
+    }
+
+    #recomended .recomended-element {
+        background: #f6f6f6;
+        padding: 5px;
+        border-radius: 15px;
+    }
+
+    #greeting .greeting-container {
+        margin: 10px 30px;
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    main #posts {
+        flex-basis: 100%;
+    }
+    #sidebar {
+        display:none;
+    }
+    header .search {
+        display:none;
+    }
+    #greeting img {
+        height: 150px;
+        width: auto;
+    }
+    #greeting .message h2 {
+        font-size: 26px;
+        margin: 40px 0 0 0;
+    }
+}
+
+
+
+
+
+
