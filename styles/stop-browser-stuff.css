@@ -1,0 +1,7 @@
+/* Onemogućavanje default dodavanja active linije kod Chromea, Firefoxa, itd */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
