@@ -16,7 +16,7 @@ header {
     top:0px;
     left:0px;
     right:0px;
-   
+    z-index:999;
 }
 
 .header-container {
@@ -92,6 +92,7 @@ header .menu-icon {
     margin: 0 5px;
     opacity: 1;
     transition: all 0.3s ease-in-out 0s;
+    cursor:pointer;
 }
 
 header .menu-icon:hover {
@@ -156,7 +157,7 @@ main {
 
 main #main-container {
     margin: 0 20px;
-    display: flex;
+    display:flex;
     justify-content: space-between;
 }
 
@@ -251,6 +252,10 @@ main #sidebar {
     text-transform: uppercase;
     margin: 10px 0 0 0;
     text-align: center;
+}
+
+#sidebar .about-info i {
+    font-style: normal;
 }
 
 
@@ -381,6 +386,10 @@ main #sidebar {
     margin: 0 0 10px 0;
 }
 
+#posts .post-hide {
+    display: none;
+}
+
 #posts .user-post .container {
     padding: 10px 20px 0px;
 }
@@ -460,6 +469,23 @@ main #sidebar {
     padding: 0 0 5px 0;
 }
 
+#posts .user-post .post-image-info .image-message-user {
+    display:inline;
+    text-decoration: none;
+    font-weight: bold;
+    color: #414042;
+    opacity: 1;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .user-post .post-image-info .image-message-user:hover {
+    opacity: 0.8;
+}
+
+#posts .user-post .post-image-info .image-message {
+    display:inline;
+}
+
 #posts .user-post .post-image-info .like-counter, .image-message {
     margin:0;
     font-size: 16px;
@@ -482,15 +508,14 @@ main #sidebar {
     margin: 4px 0;
 }
 
-#posts .user-post .post-image-info .image-tags a {
+#posts .user-post .post-image-info .image-tags {
     color: #D585FF;
     text-decoration: none;
-    margin: 0 10px 0 0;
     opacity: 1;
     transition: all 0.3s ease-in-out 0s;
 }
 
-#posts .user-post .post-image-info .image-tags a:hover {
+#posts .user-post .post-image-info .image-tags:hover {
     color: #414042;
     opacity: 0.8;
     transition: all 0.3s ease-in-out 0s;
@@ -501,9 +526,14 @@ main #sidebar {
     padding: 0 0 20px 0;
 }
 
-#posts .user-post .post-comment-section .comment {
+#posts .comment p {
+    display: inline;
+}
+
+#posts .comment a {
     margin: 5px 0 0 0;
     font-size: 16px;
+    display: inline;
 }
 
 #posts .user-post .post-comment-section .comment a {
@@ -511,7 +541,6 @@ main #sidebar {
     font-weight: bold;
     color: #414042;
     opacity: 1;
-    margin: 0 4px 0 0;
     transition: all 0.3s ease-in-out 0s;
 }
 
@@ -524,10 +553,17 @@ main #sidebar {
     display: flex;
 }
 
-#posts .user-post .post-add-comment .comment {
+#posts .comment-text {
     border: none;
     flex-basis: 90%;
     font-family: 'Quicksand', sans-serif;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#posts .comment-text:focus {
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 30px;
 }
 
 #posts .user-post .post-add-comment .submit-comment {
@@ -707,6 +743,9 @@ footer .container a:hover {
 
 
 @media only screen and (max-width: 650px) {
+    main #main-container {
+        display:block;
+    }
     main #posts {
         flex-basis: 100%;
     }
@@ -721,13 +760,63 @@ footer .container a:hover {
         width: auto;
     }
     #greeting .message h2 {
-        font-size: 26px;
-        margin: 40px 0 0 0;
+        font-size: 20px;
+    }
+    #greeting .message h3 {
+        font-size: 12px;
+    }
+    footer .copyright {
+        text-align: right;
+        font-size: 11px;
+    }
+    footer .links {
+        margin-right:5px;
+    }
+    footer .links a {
+        text-align: left;
+        font-size:11px;
     }
 }
 
+@media only screen and (max-width: 480px) {
+    #greeting img {
+        height: 150px;
+        width: auto;
+    }
+    #greeting .message h2 {
+        font-size: 16px;
+    }
+    #greeting .message h3 {
+        font-size: 9px;
+    }
+    footer .copyright {
+        text-align: right;
+        font-size: 9px;
+    }
+    footer .links {
+        margin-right:5px;
+    }
+    footer .links a {
+        text-align: left;
+        font-size:9px;
+    }
+    footer .container p {
+        font-size: 9px;
+    }
 
-
-
-
-
+    #posts-recomended .profile img {
+        height: 50px;
+    }
+    #posts-recomended .profile h2 {
+        font-size: 12px;
+    }
+    #posts-recomended .profile p {
+        font-size: 8px;
+    }
+    #posts-recomended .follow {
+        margin: 4px 0 0 0;
+    }
+    #posts-recomended .follow a {
+        font-size: 8px;
+    }
+}
