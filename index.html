@@ -12,6 +12,54 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="shortcut icon" href="images/fav/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/fav/favicon.ico" type="image/x-icon">
+
+    <template id="user-post">
+        <article class="user-post">
+            <div class="container">
+                <div class="post-user-info">
+                    <a href="/"><img src="" alt="Profil" class="profile-pic"/></a>
+                    <div class="info">
+                        <a href="/"><h2></h2></a>
+                        <a href="/"><p></p></a>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="post-user-image">
+                <img src="" alt="Post"/>
+            </div>
+
+            <div class="container">
+                <div class="post-image-buttons">
+                    <div class="first">
+                        <img src="images/icons/icon_srce.png" alt="Like" title="Like" class="image-button button-like"/>
+                        <img src="images/icons/icon_comment.png" alt="Comment" title="Comment" class="image-button button-comment"/>
+                        <img src="images/icons/icon_send.png" alt="Send" title="Send" class="image-button"/>
+                    </div>
+                    <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button button-save"/>
+                </div>
+
+                <div class="post-image-info">
+                    <h2 class="like-counter">Sviđa mi se: <a href="/">0</a></h2>
+                    <a class="image-message-user" href="/"></a>
+                    <p class="image-message"></p>
+                    <a class="image-tags" href="/"></a>
+                </div>
+
+                <div class="post-comment-section">
+                    <div class="comment">
+                        <a href="/"></a>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="post-add-comment">
+                    <input type="text" placeholder="Komentiraj..." class="comment-text">
+                    <button type="submit" class="submit-comment">Pošalji</button>
+                </div>
+            </div>
+        </article>
+      </template>
 </head>
 <body>
     <header>
@@ -28,8 +76,8 @@
 
             <div class="menu">
                 <a href="/"><img src="images/icons/icon_kompas.png" alt="Istraži" title="Istraži" class="menu-icon"/></a>
-                <a href="/"><img src="images/icons/icon_srce.png" alt="Obavijesti" title="Obavijesti" class="menu-icon"/></a>
-                <a href="/"><img src="images/icons/icon_profil.png" alt="Profil" title="Profil" class="menu-icon"/></a>
+                <a><img src="images/icons/icon_srce.png" alt="Obavijesti" title="Obavijesti" id="menu-heart-icon" class="menu-icon heart"/></a>
+                <a><img src="images/icons/icon_profil.png" alt="Profil" title="Profil" id="menu-profile-icon" class="menu-icon"/></a>
             </div>
         </div>
     </header>
@@ -78,26 +126,35 @@
                         <div class="container">
                             <div class="post-image-buttons">
                                 <div class="first">
-                                    <img src="images/icons/icon_srce.png" alt="Like" title="Like" class="image-button"/>
-                                    <img src="images/icons/icon_comment.png" alt="Comment" title="Comment" class="image-button"/>
+                                    <img src="images/icons/icon_srce.png" alt="Like" title="Like" class="image-button button-like"/>
+                                    <img src="images/icons/icon_comment.png" alt="Comment" title="Comment" class="image-button button-comment"/>
                                     <img src="images/icons/icon_send.png" alt="Send" title="Send" class="image-button"/>
                                 </div>
-                                <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button"/>
+                                <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button button-save"/>
                             </div>
 
                             <div class="post-image-info">
                                 <h2 class="like-counter">Sviđa mi se: <a href="/">315</a></h2>
-                                <p class="image-message"><a href="/">elasova</a>No one looks up anymore ’cause you might get a raindrop in your eye. And heaven forbid, they see you cry as we fall in line.</p>
-                                <p class="image-tags"><a href="/">#twentyonepilots</a><a href="/">#top</a><a href="/">#quotes</a></p>
+                                <a class="image-message-user" href="/">elasova</a>
+                                <p class="image-message">No one looks up anymore ’cause you might get a raindrop in your eye. And heaven forbid, they see you cry as we fall in line.</p>
+                                <a class="image-tags" href="/">#twentyonepilots</a>
+                                <a class="image-tags" href="/">#top</a>
+                                <a class="image-tags" href="/">#quotes</a>
                             </div>
 
                             <div class="post-comment-section">
-                                <p class="comment"><a href="/">simecuk</a>Predobra slika! 😍</p>
-                                <p class="comment"><a href="/">marijacuk</a>Zakon! 😎</p>
+                                <div class="comment">
+                                    <a href="/">simecuk</a>
+                                    <p>Predobra slika! 😍</p>
+                                </div>
+                                <div class="comment">
+                                    <a href="/">marijacuk</a>
+                                    <p>Zakon! 😎</p>
+                                </div>
                             </div>
 
                             <div class="post-add-comment">
-                                <input type="text" placeholder="Komentiraj..." class="comment">
+                                <input type="text" placeholder="Komentiraj..." class="comment-text">
                                 <button type="submit" class="submit-comment">Pošalji</button>
                             </div>
                         </div>
@@ -118,7 +175,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                                 <div class="element">
@@ -131,7 +188,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                                 <div class="element">
@@ -144,7 +201,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                             </div>                          
@@ -170,26 +227,34 @@
                         <div class="container">
                             <div class="post-image-buttons">
                                 <div class="first">
-                                    <img src="images/icons/icon_srce.png" alt="Like" class="image-button"/>
-                                    <img src="images/icons/icon_comment.png" alt="Comment" class="image-button"/>
+                                    <img src="images/icons/icon_srce.png" alt="Like" class="image-button button-like"/>
+                                    <img src="images/icons/icon_comment.png" alt="Comment" class="image-button button-comment"/>
                                     <img src="images/icons/icon_send.png" alt="Send" class="image-button"/>
                                 </div>
-                                <img src="images/icons/icon_save.png" alt="Save" class="image-button"/>
+                                <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button button-save"/>
                             </div>
     
                             <div class="post-image-info">
                                 <h2 class="like-counter">Sviđa mi se: <a href="/">97</a></h2>
-                                <p class="image-message"><a href="/">elasova</a>Sretna Nova ljudi!! 🎉🎊🎆🎇</p>
-                                <p class="image-tags"><a href="/">#2019</a><a href="/">#novagodina</a></p>
+                                <a class="image-message-user" href="/">elasova</a>
+                                <p class="image-message">Sretna Nova ljudi!! 🎉🎊🎆🎇</p>
+                                <a class="image-tags" href="/">#2019</a>
+                                <a class="image-tags" href="/">#novagodina</a>
                             </div>
     
                             <div class="post-comment-section">
-                                <p class="comment"><a href="/">elasova</a>Sretna Nova i tebi i tvojima! ❤️️</p>
-                                <p class="comment"><a href="/">simecuk</a>I tebi neka bude sretna! 🤘</p>
+                                <div class="comment">
+                                    <a href="/">elasova</a>
+                                    <p>Sretna Nova i tebi i tvojima! ❤️️</p>
+                                </div>
+                                <div class="comment">
+                                    <a href="/">simecuk</a>
+                                    <p>I tebi neka bude sretna! 🤘</p>
+                                </div>
                             </div>
     
                             <div class="post-add-comment">
-                                <input type="text" placeholder="Komentiraj..." class="comment">
+                                <input type="text" placeholder="Komentiraj..." class="comment-text">
                                 <button type="submit" class="submit-comment">Pošalji</button>
                             </div>
     
@@ -215,26 +280,83 @@
                         <div class="container">
                             <div class="post-image-buttons">
                                 <div class="first">
-                                    <img src="images/icons/icon_srce.png" alt="Like" class="image-button"/>
-                                    <img src="images/icons/icon_comment.png" alt="Comment" class="image-button"/>
-                                    <img src="images/icons/icon_send.png" alt="Send" class="image-button"/>
+                                    <img src="images/icons/icon_srce.png" alt="Like" class="image-button button-like"/>
+                                    <img src="images/icons/icon_comment.png" alt="Comment" class="image-button button-comment"/>
+                                    <img src="images/icons/icon_send.png" alt="Send" class="image-button button-comment"/>
                                 </div>
-                                <img src="images/icons/icon_save.png" alt="Save" class="image-button"/>
+                                <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button button-save"/>
                             </div>
     
                             <div class="post-image-info">
                                 <h2 class="like-counter">Sviđa mi se: <a href="/">315</a></h2>
-                                <p class="image-message"><a href="/">markojelen</a>Upomoć ljudi!!!! 😅😂</p>
-                                <p class="image-tags"><a href="/">#crazy</a><a href="/">#cool</a><a href="/">#help</a></p>
+                                <a class="image-message-user" href="/">markojelen</a>
+                                <p class="image-message">Upomoć ljudi!!!! 😅😂</p>
+                                <a class="image-tags" href="/">#crazy</a>
+                                <a class="image-tags" href="/">#cool</a>
+                                <a class="image-tags" href="/">#help</a>
                             </div>
     
                             <div class="post-comment-section">
-                                <p class="comment"><a href="/">jurezec</a>Brate, nema tebi pomoći.. 😜😜</p>
-                                <p class="comment"><a href="/">antelisac</a>Cura jača od tebe ahahaah</p>
+                                <div class="comment">
+                                    <a href="/">jurezec</a>
+                                    <p>Brate, nema tebi pomoći.. 😜😜</p>
+                                </div>
+                                <div class="comment">
+                                    <a href="/">antelisac</a>
+                                    <p>Cura jača od tebe ahahaah</p>
+                                </div>
                             </div>
     
                             <div class="post-add-comment">
-                                <input type="text" placeholder="Komentiraj..." class="comment">
+                                <input type="text" placeholder="Komentiraj..." class="comment-text">
+                                <button type="submit" class="submit-comment">Pošalji</button>
+                            </div>
+    
+                        </div> 
+                    </article>
+
+                    <!-- Četvrta objava -->
+                    <article class="user-post">
+                        <div class="container">
+                            <div class="post-user-info">
+                                <a href="/"><img src="images/profile/profile_sime.jpg" alt="Profil" class="profile-pic"/></a>
+                                <div class="info">
+                                    <a href="/"><h2>simecuk</h2></a>
+                                    <a href="/"><p>Imotski, Croatia</p></a>
+                                </div> 
+                            </div>
+                        </div>
+    
+                        <div class="post-user-image">
+                            <img src="images/posts/posts_image5.jpg" alt="Post"/>
+                        </div>
+    
+                        <div class="container">
+                            <div class="post-image-buttons">
+                                <div class="first">
+                                    <img src="images/icons/icon_srce.png" alt="Like" class="image-button button-like"/>
+                                    <img src="images/icons/icon_comment.png" alt="Comment" class="image-button button-comment"/>
+                                    <img src="images/icons/icon_send.png" alt="Send" class="image-button"/>
+                                </div>
+                                <img src="images/icons/icon_save.png" alt="Save" title="Save" class="image-button button-save"/>
+                            </div>
+    
+                            <div class="post-image-info">
+                                <h2 class="like-counter">Sviđa mi se: <a href="/">28</a></h2>
+                                <a class="image-message-user" href="/">simecuk</a>
+                                <p class="image-message">Predobro 😂😂</p>
+                                <a class="image-tags" href="/">#batman</a>
+                            </div>
+    
+                            <div class="post-comment-section">
+                                <div class="comment">
+                                    <a href="/">elasova</a>
+                                    <p>AHAHAH 😂</p>
+                                </div>
+                            </div>
+    
+                            <div class="post-add-comment">
+                                <input type="text" placeholder="Komentiraj..." class="comment-text">
                                 <button type="submit" class="submit-comment">Pošalji</button>
                             </div>
     
@@ -257,9 +379,9 @@
                                 <h3>O meni</h3>
                                 <p>There’s miles of land in front of us and we’re dying with every step we take. We’re dying with every breath we make and I’ll fall in line.</p>
                                 <div class="about-info">
-                                    <p><strong>Objava:</strong> 314</p>
-                                    <p><strong>Pratitelja:</strong> 488</p>
-                                    <p><strong>Pratim:</strong> 144</p>
+                                    <div><p><strong>Pratim:</strong></p><p id="info-user-count">113</p></div>
+                                    <div><p><strong>Srca:</strong></p><p id="info-like-count">225</p></div>
+                                    <div><p><strong>Bilješke:</strong></p><p id="info-bookmark-count">144</p></div>
                                 </div>
 
                                 
@@ -277,7 +399,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                                 <div class="recomended-element">
@@ -289,7 +411,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div>         
                                 </div>
                                 <div class="recomended-element">
@@ -301,7 +423,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                                 <div class="recomended-element">
@@ -313,7 +435,7 @@
                                         </div>
                                     </div>
                                     <div class="follow">
-                                        <a href="/">Prati</a>
+                                        <a>Prati</a>
                                     </div> 
                                 </div>
                             </div>
@@ -329,6 +451,6 @@
             <p class="copyright">© 2018 μGRAM</p>
         </div>
     </footer>
-
+    <script src="scripts/post-buttons.js"></script>
 </body>
 </html>
