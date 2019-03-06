@@ -7,33 +7,63 @@ for(let i = 0; i < heartIcons.length; i++){
     heartIcon.addEventListener("click", handleHeartIconClick);
 }
 
-function handleHeartIconClick(e){
+async function handleHeartIconClick(e){
     let heartIcon = e.currentTarget;
-    
-    let heartPostCounts = document.querySelectorAll(".user-post .like-counter a");
-    let heartIconsConfirms = document.querySelectorAll(".user-post .button-like");
-    let heartPostCount;
-    let heartIconsConfirm;
-    for(i=0;i<heartPostCounts.length;i++){
-        heartPostCount = heartPostCounts[i];
-        heartIconsConfirm = heartIconsConfirms[i];
-        if(heartIconsConfirm == heartIcon){
-            break;
+    let postId = heartIcon.parentElement.parentElement.className.split(' ')[1];
+
+        let heartPostCounts = document.querySelectorAll(".user-post .like-counter a");
+        let heartIconsConfirms = document.querySelectorAll(".user-post .button-like");
+        let heartPostCount;
+        let heartIconsConfirm;
+        for(i=0;i<heartPostCounts.length;i++){
+            heartPostCount = heartPostCounts[i];
+            heartIconsConfirm = heartIconsConfirms[i];
+            if(heartIconsConfirm == heartIcon){
+                break;
+            }
         }
-    }
+        
+        let user = document.querySelector("#profile .info h2").innerText;
 
-
-    let heartCount = document.getElementById("info-like-count");
-    if(heartIcon.src.match("icon_srce.png")){
-        heartIcon.src = "images/icons/icon_srce_full.png";
-        heartCount.innerHTML = parseInt(heartCount.innerHTML) + 1;
-        heartPostCount.innerHTML = parseInt(heartPostCount.innerHTML) + 1;
-    }
-    else {
-        heartIcon.src = "images/icons/icon_srce.png";
-        heartCount.innerHTML = parseInt(heartCount.innerHTML) - 1;
-        heartPostCount.innerHTML = parseInt(heartPostCount.innerHTML) - 1;
-    }
+        let heartCount = document.getElementById("info-like-count");
+        if(heartIcon.src.match("icon_srce.png")){
+            try {
+                let liked = 1;
+                let serverResponse = await
+                fetch(`API.php?action=toggleLike&id=${postId}&liked=${liked}`);
+                fetch(`API.php?action=toggleTotalLike&user=${user}`);
+                let responseData = await serverResponse.json();
+                if(!responseData.success){
+                    alert(`Error while liking: ${responseData.reason}`);
+                    return;
+                }
+                heartIcon.src = "images/icons/icon_srce_full.png";
+                heartCount.innerHTML = parseInt(heartCount.innerHTML) + 1;
+                heartPostCount.innerHTML = parseInt(heartPostCount.innerHTML) + 1;
+            }
+            catch(e) {
+                alert("Error while updating likes.");
+            }
+        }
+        else {
+            try {
+                let unliked = 0;
+                let serverResponse = await
+                fetch(`API.php?action=toggleDislike&id=${postId}&liked=${unliked}`);
+                fetch(`API.php?action=toggleTotalDislike&user=${user}`);
+                let responseData = await serverResponse.json();
+                if(!responseData.success){
+                    alert(`Error while unliking: ${responseData.reason}`);
+                    return;
+                }
+                heartIcon.src = "images/icons/icon_srce.png";
+                heartCount.innerHTML = parseInt(heartCount.innerHTML) - 1;
+                heartPostCount.innerHTML = parseInt(heartPostCount.innerHTML) - 1;
+            }
+            catch(e) {
+                alert("Error while updating likes.");
+            }
+        }
 }
 
 // Bookmark Icon
@@ -44,16 +74,48 @@ for(let i = 0; i < bookmarkIcons.length; i++){
     bookmarkIcon.addEventListener("click", handleBookmarkIconClick);
 }
 
-function handleBookmarkIconClick(e){
+async function handleBookmarkIconClick(e){
     let bookmarkIcon = e.currentTarget;
     let bookmarkCount = document.getElementById("info-bookmark-count");
+
+    let postId = bookmarkIcon.parentElement.className.split(' ')[1];
+    let user = document.querySelector("#profile .info h2").innerText;
+
     if(bookmarkIcon.src.match("icon_save.png")){
-        bookmarkIcon.src = "images/icons/icon_save_full.png";
-        bookmarkCount.innerHTML = parseInt(bookmarkCount.innerHTML) + 1;
+        try {
+            let bookmarkedUp = 1;
+            let serverResponse = await
+            fetch(`API.php?action=toggleBookmarkUp&id=${postId}&bookmarked=${bookmarkedUp}`);
+            fetch(`API.php?action=toggleTotalBookmarkUp&user=${user}`);
+            let responseData = await serverResponse.json();
+            if(!responseData.success){
+                alert(`Error while bookmarking: ${responseData.reason}`);
+                return;
+            }
+            bookmarkIcon.src = "images/icons/icon_save_full.png";
+            bookmarkCount.innerHTML = parseInt(bookmarkCount.innerHTML) + 1;
+        }
+        catch(e) {
+            alert("Error while updating bookmarks.");
+        }
     }
     else {
-        bookmarkIcon.src = "images/icons/icon_save.png";
-        bookmarkCount.innerHTML = parseInt(bookmarkCount.innerHTML) - 1;
+        try {
+            let bookmarkedDown = 0;
+            let serverResponse = await
+            fetch(`API.php?action=toggleBookmarkDown&id=${postId}&bookmarked=${bookmarkedDown}`);
+            fetch(`API.php?action=toggleTotalBookmarkDown&user=${user}`);
+            let responseData = await serverResponse.json();
+            if(!responseData.success){
+                alert(`Error while bookmarking: ${responseData.reason}`);
+                return;
+            }
+            bookmarkIcon.src = "images/icons/icon_save.png";
+            bookmarkCount.innerHTML = parseInt(bookmarkCount.innerHTML) - 1;
+        }
+        catch(e) {
+            alert("Error while updating bookmarks.");
+        }
     }
 }
 
@@ -88,6 +150,9 @@ mainHeart.addEventListener("click", handleCountHeartClick);
 
 
 function handleCountHeartClick(e){
+    let mainProfile = document.querySelector("#menu-profile-icon");
+    mainProfile.src = "images/icons/icon_profil.png";
+
     let mainHeart = e.currentTarget;
     if(mainHeart.src.match("icon_srce.png")){
         mainHeart.src = "images/icons/icon_srce_full.png";
@@ -118,6 +183,9 @@ mainProfile.addEventListener("click", handleCountProfileClick);
 
 
 function handleCountProfileClick(e){
+    let mainHeart = document.querySelector("#menu-heart-icon");
+    mainHeart.src = "images/icons/icon_srce.png";
+
     let mainProfile = e.currentTarget;
     let activeUser = document.querySelector("#profile .info h2");
     if(mainProfile.src.match("icon_profil.png")){
@@ -145,8 +213,7 @@ function handleCountProfileClick(e){
 
 
 // Comment Focus
-let  commentButtons = document.querySelectorAll(".user-post .button-comment");
-
+let commentButtons = document.querySelectorAll(".user-post .button-comment");
 for(i=0;i<commentButtons.length;i++){
     let commentButton = commentButtons[i];
     commentButton.addEventListener("click", handleCommentButtonClick);
@@ -154,25 +221,17 @@ for(i=0;i<commentButtons.length;i++){
 
 function handleCommentButtonClick(e){
     let commentButton = e.currentTarget;
-    let commentButtonsCompares = document.querySelectorAll(".user-post .button-comment");
-    let commentSections = document.querySelectorAll(".post-add-comment .comment-text");
-    let commentSection;
-    for(i=0; i<commentButtonsCompares.length;i++){
-        let commentButtonsCompare = commentButtonsCompares[i];
-        commentSection = commentSections[i];
-        if(commentButtonsCompare == commentButton){
-            break;
-        }
-    }
-    commentSection.focus();
+    let commentBox = commentButton.parentElement.parentElement.parentElement.querySelector(".post-add-comment input");
+    commentBox.focus();
 }
 
 // Add New Post
 let addPostButton = document.querySelector(".add-post-button a");
-addPostButton.addEventListener("click", e=> {
+addPostButton.addEventListener("click", async e=> {
     let postUser = document.querySelector("#profile .info h2").textContent;
     let postUserImage = document.querySelector("#profile img").src;
     let postLocation = prompt("Unesite lokaciju gdje je slikana fotografija:", "Split, Hrvatska");
+    
     if(!postLocation) {
         return;
     }
@@ -219,10 +278,34 @@ addPostButton.addEventListener("click", e=> {
       }
     });
 
-    let postContainer = document.querySelector("#posts .posts-container");
-    let secondElement = postContainer.childNodes[1];
+    
 
-    secondElement.parentNode.insertBefore(postsElement, secondElement.nextSibling);
+    try {
+        let newTags = postTags;
+        newTags = newTags.replace(/#/g, '.')
+
+        let serverResponse = await
+        fetch(`API.php?action=toggleNewPost&user=${postUser}&userimg=${postUserImage}&location=${postLocation}&image=${postImage}&description=${postDescription}&tags=${newTags}`);
+        let responseData = await serverResponse.json();
+        if(!responseData.success){
+            alert(`Error while posting: ${responseData.reason}`);
+            return;
+        }
+
+        let postContainer = document.querySelector("#posts .posts-container");
+        let secondElement = postContainer.childNodes[1];
+        secondElement.parentNode.insertBefore(postsElement, secondElement.nextSibling);
+
+        let lastId = responseData.latestID[0];
+        let newPost = postContainer.children[1];
+
+        newPost.classList.add(lastId);
+        newPost.querySelector(".post-image-buttons ").classList.add(lastId);
+        newPost.querySelector(".post-add-comment").classList.add(lastId);
+    }
+    catch(e) {
+        alert("Error while uploading post to database.");
+    }
 });
 
 // Add Comment
@@ -238,28 +321,44 @@ for(i = 0; i < submitCommentButtons.length; i++){
     });
 }
 
-function handleSubmitCommentButton(e){
-    let submitButton = e.currentTarget;
-    let addComment = submitButton.parentElement;
-    let commentText = addComment.querySelector(".comment-text");
+async function handleSubmitCommentButton(e){
+    try {
+        let submitButton = e.currentTarget;
+        let addComment = submitButton.parentElement;
+        let commentText = addComment.querySelector(".comment-text");
+        let commentAuthor = document.querySelector("#profile .info h2").innerText;
 
-    if(commentText.value !== ""){
-        let commentSection = addComment.parentElement.querySelector(".post-comment-section");
-        let newComment = document.createElement("div");
-        newComment.className = "comment";
-        let newCommentUser = document.createElement("a");
-        newCommentUser.href = "/";
-        newCommentUser.style.margin = "0 5px 0 0";
-        let newCommentText = document.createElement("p");
+        let postId = addComment.className.split(' ')[1];
 
-        newCommentUser.textContent = document.querySelector("#profile .info h2").textContent;
-        newCommentText.textContent = commentText.value;
+        let serverResponse = await
+        fetch(`API.php?action=toggleNewComment&id=${postId}&user=${commentAuthor}&text=${commentText.value}`);
+        let responseData = await serverResponse.json();
+        if(!responseData.success){
+            alert(`Error while commenting: ${responseData.reason}`);
+            return;
+        }
+        
+        if(commentText.value !== ""){
+            let commentSection = addComment.parentElement.querySelector(".post-comment-section");
+            let newComment = document.createElement("div");
+            newComment.className = "comment";
+            let newCommentUser = document.createElement("a");
+            newCommentUser.href = "/";
+            newCommentUser.style.margin = "0 5px 0 0";
+            let newCommentText = document.createElement("p");
 
-        commentSection.appendChild(newComment);
-        newComment.appendChild(newCommentUser);
-        newComment.appendChild(newCommentText);
+            newCommentUser.textContent = document.querySelector("#profile .info h2").textContent;
+            newCommentText.textContent = commentText.value;
+
+            commentSection.appendChild(newComment);
+            newComment.appendChild(newCommentUser);
+            newComment.appendChild(newCommentText);
+        }
+        commentText.value= "";
     }
-    commentText.value= "";
+    catch(e) {
+        alert("Error while uploading comment to database.");
+    }
 }
  
 
@@ -293,7 +392,7 @@ function handleRemoveRecomendedElementClick(e){
 
     let secondCheck = document.querySelector("#recomended .recomended-container");
     if(secondCheck.childElementCount == 1) {
-        secondCheck.remove();
+        secondCheck.parentElement.remove();
     }
 }
 
