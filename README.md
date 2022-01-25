@@ -1,2 +1,2 @@
-# Web-Programming
-Web Programming Course @ FESB
+# Simple Social App (Js + php)
+Created during the Web Programming Course @ FESB
